@@ -20,6 +20,8 @@ public static void main(String[] args) {
 		System.out.println("<===========Start===========>");
 		
 		Account account = new Account();
+		account.setName("DivyaSourabh");
+		account.setLevel("2");
 		accountDAO.addAccount(account);
 		accountDAO.setName("Divya");
 		accountDAO.getName();
