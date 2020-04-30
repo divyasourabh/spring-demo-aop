@@ -64,6 +64,12 @@ public class AfterReturningPointCutAspect {
 			account.setName("Reena");
 		}
 		
+		for (Account account: result) {
+			account.setName(account.getName().toUpperCase());
+		}
+		
+		System.out.println("End Result = " + result);
+		
 		System.out.println("\n==MyDemoPointCutCombinationAspect===>>Executing @AfterReturning AfterReturningFindAccountsAdvice");
 	}	
 	
