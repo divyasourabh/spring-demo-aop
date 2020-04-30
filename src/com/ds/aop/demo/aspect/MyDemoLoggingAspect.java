@@ -19,7 +19,7 @@ public class MyDemoLoggingAspect {
 //	@Before("execution(public void com.ds.aop.demo.dao.AccountDAO.add*())")
 //	@Before("execution(public void add*())") //Point Cut Expression
 	public void beforeAddAccountAdvice() {
-//		System.out.println("\n=====>>Executing @Before advice on addAccount()");
-		System.out.println("\n=====>>Executing @Before advice on add*()");
+//		System.out.println("\n===MyDemoLoggingAspect==>>Executing @Before advice on addAccount()");
+		System.out.println("\n==MyDemoLoggingAspect===>>Executing @Before advice on add*()");
 	}
 }
