@@ -26,7 +26,7 @@ public class MyDemoPointCutCombinationAspect {
 	
 	//Combine pointcut: include package....exclude getter/setter
 	@Pointcut("forDaoPackage() && !(getter() || setter())")
-	private void forDaoPackageNoGetterSetter() {
+	public void forDaoPackageNoGetterSetter() {
 		System.out.println("\n===MyDemoPointCutCombinationAspect==>>Executing @Before forDaoPackageNoGetterSetter");
 	}
 	
@@ -35,9 +35,6 @@ public class MyDemoPointCutCombinationAspect {
 		System.out.println("\n==MyDemoPointCutCombinationAspect===>>Executing @Before beforeAddAccountAdvice");
 	}
 	
-	@Before("forDaoPackageNoGetterSetter()")
-	public void performAnalytics() {
-		System.out.println("\n==MyDemoPointCutCombinationAspect===>>Executing @Before performAnalytics");
-	}
+
 	
 }
