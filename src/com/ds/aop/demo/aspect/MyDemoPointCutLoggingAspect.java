@@ -18,4 +18,9 @@ public class MyDemoPointCutLoggingAspect {
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n===MyDemoPointCutLoggingAspect==>>Executing @Before advice on addAccount()");
 	}
+	
+	@Before("anyFunctionName()") //Point Cut Expression
+	public void performAnalytics() {
+		System.out.println("\n===MyDemoPointCutLoggingAspect==>>Performing Analytics");
+	}
 }
