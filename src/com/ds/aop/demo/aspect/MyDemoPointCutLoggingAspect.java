@@ -9,8 +9,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyDemoPointCutLoggingAspect {
 	
-	@Pointcut("execution(public void addAccount(*))")
-	private void anyFunctionName() {}
+	@Pointcut("execution(* com.ds.aop.demo.dao.*.*(..))")
+	private void anyFunctionName() {}	
+//	@Pointcut("execution(public void addAccount(*))")
+//	private void anyFunctionName() {}
 
 	@Before("anyFunctionName()") //Point Cut Expression
 	public void beforeAddAccountAdvice() {
