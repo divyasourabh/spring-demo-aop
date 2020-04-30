@@ -12,7 +12,7 @@ import com.ds.aop.demo.Account;
 @Order(4)
 @Aspect
 @Component
-public class MyLocalLoggingJoinPointAspect {
+public class MyLocalLoggingJoinPointsAspect {
 	
 	@Before("com.ds.aop.demo.aspect.MyDemoPointCutCombinationAspect.forDaoPackageNoGetterSetter()")
 	public void performLocalAnalytics(JoinPoint joinPoint) {
