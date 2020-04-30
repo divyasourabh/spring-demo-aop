@@ -14,7 +14,7 @@ import com.ds.aop.demo.Account;
 
 @Aspect
 @Component
-public class MyDemoPointCutCombinationAspect {
+public class AfterReturningPointCutAspect {
 	
 	@Pointcut("execution(* com.ds.aop.demo.dao.*.*(..))")
 	private void forDaoPackage() {
@@ -40,5 +40,31 @@ public class MyDemoPointCutCombinationAspect {
 	@Before("forDaoPackageNoGetterSetter()")
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n==MyDemoPointCutCombinationAspect===>>Executing @Before beforeAddAccountAdvice");
+	}
+	
+	
+	@AfterReturning("forDaoPackageNoGetterSetter()")
+	public void AfterAddAccountAdvice() {
+		System.out.println("\n==MyDemoPointCutCombinationAspect===>>Executing @AfterReturning AfterAddAccountAdvice");
 	}	
+
+	@AfterReturning(pointcut = "execution(* com.ds.aop.demo.dao.*.*(..))", returning = "result")
+	public void AfterReturningFindAccountsAdvice(JoinPoint joinPoint, List<Account> result) {
+		
+		//Display the method signature
+		MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+		System.out.println("Method: " + methodSignature.toShortString());
+		
+		
+		System.out.println("Result = " + result);
+		
+		if (!result.isEmpty()) {
+			Account account = result.get(0);
+			//Updating Data on after Returning
+			account.setName("Reena");
+		}
+		
+		System.out.println("\n==MyDemoPointCutCombinationAspect===>>Executing @AfterReturning AfterReturningFindAccountsAdvice");
+	}	
+	
 }

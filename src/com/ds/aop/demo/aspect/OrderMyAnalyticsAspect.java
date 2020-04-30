@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Order(0)
 @Aspect
 @Component
-public class MyAnalyticsAspect {
+public class OrderMyAnalyticsAspect {
 	
 	@Before("com.ds.aop.demo.aspect.MyDemoPointCutCombinationAspect.forDaoPackageNoGetterSetter()")
 	public void performAnalytics() {

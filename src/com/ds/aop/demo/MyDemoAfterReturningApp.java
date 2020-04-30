@@ -1,12 +1,14 @@
 package com.ds.aop.demo;
 
+import java.util.List;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ds.aop.demo.dao.AccountDAO;
-import com.ds.aop.demo.dao.MembershipDAO;
 
-public class MyDemoPointCutCombinationApp {
+public class MyDemoAfterReturningApp {
+	
 	
 	public static void main(String[] args) {
 
@@ -20,16 +22,12 @@ public class MyDemoPointCutCombinationApp {
 
 		System.out.println("<===========Start===========>");
 
-		Account account = new Account();
-		account.setName("DivyaSourabh");
-		account.setLevel("2");
-		accountDAO.addAccount(account);
-		accountDAO.setName("Divya");
-		accountDAO.getName();
-		accountDAO.setServiceCode("7090");
-		accountDAO.getServiceCode();
-		accountDAO.doWork();		
-
+		List<Account> accounts = accountDAO.findAccounts();
+		
+		System.out.println("AfterReturning Demo App");
+		
+		System.out.println(accounts);
+		
 		System.out.println("<===========END===========>");
 
 		context.close();
